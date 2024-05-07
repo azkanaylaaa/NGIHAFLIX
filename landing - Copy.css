@@ -1,0 +1,42 @@
+body {
+    /* background-color: #141414; */
+    overflow-x: hidden;
+    position: relative;
+}
+
+.netflix-padding-left {
+    padding-left: 57px;
+}
+.netflix-padding-right {
+    padding-right: 57px;
+}
+
+.netflix-navbar{
+    /* background-color: #0c0c0c; */
+    position: fixed;
+    width: 100vw;
+    z-index: 1000;
+    transition: background 0.2s linear;
+}
+
+.netflix-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.navbar-brand img{
+    width: 100px;
+}
+
+.netflix-dropdown-box{
+    display: none;
+}
+
+
+.netflix-dropdown{
+    background-color: transparent;
+    color:#fff;
+    border: none;
+}
