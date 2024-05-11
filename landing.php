@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="./n.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./landing.css">
@@ -108,7 +109,7 @@
                   if ($conn_->connect_error) {
                     die("Connection failed: " . $conn_->connect_error);
                   }
-                  $sql = "SELECT id, Picture, Title, Genre, Rating FROM ngihamovie WHERE Trending = 1 ORDER BY ReleaseDate DESC";
+                  $sql = "SELECT id, Picture, Title, Genre, Rating, Quality FROM ngihamovie WHERE Trending = 1 ORDER BY ReleaseDate DESC";
                   $result = $conn_->query($sql);
                   if ($result->num_rows > 0) {
                   // output data of each row
@@ -122,16 +123,14 @@
                     echo '<div class="card-body">'; 
                     echo '<section class="d-flex justify-content-between">';
                     echo '<div>';
-                    echo '<i class="bi bi-play-circle-fill card-icon"  ></i>';
-                    echo '<i  class="bi bi-plus-circle card-icon"></i>';
+                    echo '<a class="bi bi-play-circle-fill card-icon" href="./sinopsis_new.php?id='.$row["id"].'" target="_self"></a>';
                     echo '</div>';
                     echo '<div>';
-                    echo '<i class="bi bi-arrow-down-circle card-icon"></i>';
                     echo '</div>';
                     echo '</section>';
                     echo '<section class="d-flex align-items-center justify-content-between" >';
                     echo '<p class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);">'.$row["Rating"].'</p>';
-                    echo '<span class="m-2 ngihaflix-card-text text-white">'.$row["Title"].'</span> <span class="border ngihaflix-card-text p-1 text-white">HD</span>';
+                    echo '<span class="m-2 ngihaflix-card-text text-white">'.$row["Title"].'</span> <span class="border ngihaflix-card-text p-1 text-white">'.$row["Quality"].'</span>';
                     echo '</section>';
                     echo '<span class="ngihaflix-card-text text-white">'.$row["Genre"].'</span>';
                     echo '</div>';
@@ -229,11 +228,9 @@
                   echo '<div class="card-body">'; 
                   echo '<section class="d-flex justify-content-between">';
                   echo '<div>';
-                  echo '<i class="bi bi-play-circle-fill card-icon"  ></i>';
-                  echo '<i  class="bi bi-plus-circle card-icon"></i>';
+                  echo '<a class="bi bi-play-circle-fill card-icon" href="./sinopsis_new.php?id='.$row["id"].'" target="_self"></a>';
                   echo '</div>';
                   echo '<div>';
-                  echo '<i class="bi bi-arrow-down-circle card-icon"></i>';
                   echo '</div>';
                   echo '</section>';
                   echo '<section class="d-flex align-items-center justify-content-between" >';
