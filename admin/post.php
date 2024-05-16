@@ -1,5 +1,16 @@
 <?php
-include "connectdb.php";
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "ngihaflix";
+	// Create connection
+	$conn1 = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn1->connect_error) {
+		die("Connection failed: " . $connGenre->connect_error);
+	}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -81,8 +92,7 @@ $sinopsis = @$_POST['txtsinopsis'];
 $submit = @$_POST['btnsubmit'];
 
 
-$sql_simpan = mysqli_query ($conn, "insert into ngihamovie (Picture, Title, Genre, Rating, Artist, Sinopsis) values ('$picture', '$title', '$genre', '$rating', '$artist', '$sinopsis')");
-
+$sql_simpan = mysqli_query ($conn1, "insert into ngihamovie (Picture, Title, Genre, Rating, Artist, Sinopsis) values ('$picture', '$title', '$genre', '$rating', '$artist', '$sinopsis')");
 ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

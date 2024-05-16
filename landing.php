@@ -60,107 +60,105 @@
 
 
     <!-- video -->
-      <div class="">
-         <section class="ngihaflix-home-video">
-            <div class="top"></div>
-            <div class="bottom"></div>
-            <video src="./video transformer.mp4" autoplay muted loop></video>
-            <div class="content">
-                <section class="left">
-                    <img src="./POSTER/transformer.png" alt="">
-                
-                    <div class="d-flex mt-2">
-                      <button class="btn btn-light m-2" > <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now </button>
-                      <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More Info</button>
-                    </div>
-                </section>
-               
-            </div>
+    <div class="">
+      <section class="ngihaflix-home-video">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <video src="./video transformer.mp4" autoplay muted loop></video>
+        <div class="content">
+          <section class="left">
+            <img src="./POSTER/transformer.png" alt="">
+              <div class="d-flex mt-2">
+                <button class="btn btn-light m-2" > <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now </button>
+                <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More Info</button>
+              </div>
+            </img>
           </section>
-         
-      </div>
+        </div>
+      </section>
+    </div>
     <!-- video -->
 
-      <!-- sliders -->
-      <div class="slider-box">
-        <div class="container-fluid slider">
-          <section class="d-flex justify-content-between margin-right">
-            <p class="text-white"> <b>Trending</b> </p>
-            <div class="">
-              <button  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active tab-change-btn" aria-current="true" aria-label="Slide 1"></button>
-              <button class="tab-change-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button class="tab-change-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-          </section>
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <!-- sliders -->
+    <div class="slider-box">
+      <div class="container-fluid slider">
+        <div class="container-fluid  slide2">
+        <section class="d-flex justify-content-between margin-right margin-title">
+          <p class="text-white"> <b>Trending</b> </p>
+          <div class="">
+            <button  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active tab-change-btn" aria-current="true" aria-label="Slide 1"></button>
+            <button class="tab-change-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button class="tab-change-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+        </section>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" style="position: relative; overflow: visible;">
+            <div class="carousel-item active">
+              <section class="d-flex">
 
-            <div class="carousel-inner" style="position: relative; overflow: visible;">
-              <div class="carousel-item active">
-                <section class="d-flex" style="">
-
-                <?php 
-                  $servername = "localhost";
-                  $username = "root";
-                  $password = "";
-                  $dbname = "ngihaflix";
-                  // Create connection
-                  $conn_ = new mysqli($servername, $username, $password, $dbname);
-                  // Check connection
-                  if ($conn_->connect_error) {
-                    die("Connection failed: " . $conn_->connect_error);
-                  }
-                  $sql = "SELECT id, Picture, Title, Genre, Rating, Quality FROM ngihamovie WHERE Trending = 1 ORDER BY ReleaseDate DESC";
-                  $result = $conn_->query($sql);
-                  if ($result->num_rows > 0) {
-                  // output data of each row
-                  $x = 0;
-                  while($row = $result->fetch_assoc()) {
-                    $x = $x + 1;
-                    if ($x > 6) break;
-
-                    echo '<div class="card" >';
-                    echo '<img src="./POSTER/'.$row["Picture"].'" class="card-img-top" alt="...">';
-                    echo '<div class="card-body">'; 
-                    echo '<section class="d-flex justify-content-between">';
-                    echo '<div>';
-                    echo '<a class="bi bi-play-circle-fill card-icon" href="./sinopsis_new.php?id='.$row["id"].'" target="_self"></a>';
-                    echo '</div>';
-                    echo '<div>';
-                    echo '</div>';
-                    echo '</section>';
-                    echo '<section class="d-flex align-items-center justify-content-between" >';
-                    echo '<p class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);">'.$row["Rating"].'</p>';
-                    echo '<span class="m-2 ngihaflix-card-text text-white">'.$row["Title"].'</span> <span class="border ngihaflix-card-text p-1 text-white">'.$row["Quality"].'</span>';
-                    echo '</section>';
-                    echo '<span class="ngihaflix-card-text text-white">'.$row["Genre"].'</span>';
-                    echo '</div>';
-                    echo '</div>';
-                  }
+              <?php 
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "ngihaflix";
+                // Create connection
+                $conn_ = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn_->connect_error) {
+                  die("Connection failed: " . $conn_->connect_error);
                 }
-                else {
+                $sql = "SELECT id, Picture, Title, Genre, Rating, Quality FROM ngihamovie WHERE Trending = 1 ORDER BY ReleaseDate DESC";
+                $result = $conn_->query($sql);
+                if ($result->num_rows > 0) {
+                // output data of each row
+                $x = 0;
+                while($row = $result->fetch_assoc()) {
+                  $x = $x + 1;
+                  if ($x > 5) break;
+
                   echo '<div class="card" >';
-                  echo '<img src="./logo.png" class="card-img-top" alt="...">';
+                  echo '<img src="./POSTER/'.$row["Picture"].'" class="card-img-top" alt="...">';
                   echo '<div class="card-body">'; 
                   echo '<section class="d-flex justify-content-between">';
                   echo '<div>';
-                  echo '<i class="bi bi-play-circle-fill card-icon"  ></i>';
-                  echo '<i  class="bi bi-plus-circle card-icon"></i>';
-                  echo '</div>';
-                  echo '<div>';
-                  echo '<i class="bi bi-arrow-down-circle card-icon"></i>';
+                  echo '<a class="bi bi-play-circle-fill card-icon" href="./sinopsis_new.php?id='.$row["id"].'" target="_self"></a>';
+                  echo '<p class="ngihaflix-card-text text-white">'.$row["Title"].'</p>';
                   echo '</div>';
                   echo '</section>';
                   echo '<section class="d-flex align-items-center justify-content-between" >';
-                  echo '<p class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);"></p>';
-                  echo '<span class="m-2 ngihaflix-card-text text-white">JUDUL</span> <span class="border ngihaflix-card-text p-1 text-white">HD</span>';
+                  echo '<p class="ngihaflix-card-text m-0 text-white">Rating: </p>';
+                  echo '<span class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);">'.$row["Rating"].'</span>';
+                  echo '<span class="border ngihaflix-card-text p-1 text-white">'.$row["Quality"].'</span>';
                   echo '</section>';
-                  echo '<span class="ngihaflix-card-text text-white">GENRE</span>';
+                  echo '<span class="ngihaflix-card-text text-white">'.$row["Genre"].'</span>';
                   echo '</div>';
                   echo '</div>';
                 }
-                $conn_->close();       
-              ?>
-            
+              }
+              else {
+                echo '<div class="card" >';
+                echo '<img src="./logo.png" class="card-img-top" alt="...">';
+                echo '<div class="card-body">'; 
+                echo '<section class="d-flex justify-content-between">';
+                echo '<div>';
+                echo '<i class="bi bi-play-circle-fill card-icon"  ></i>';
+                echo '<i  class="bi bi-plus-circle card-icon"></i>';
+                echo '</div>';
+                echo '<div>';
+                echo '<i class="bi bi-arrow-down-circle card-icon"></i>';
+                echo '</div>';
+                echo '</section>';
+                echo '<section class="d-flex align-items-center justify-content-between" >';
+                echo '<p class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);"></p>';
+                echo '<span class="m-2 ngihaflix-card-text text-white">JUDUL</span> <span class="border ngihaflix-card-text p-1 text-white">HD</span>';
+                echo '</section>';
+                echo '<span class="ngihaflix-card-text text-white">GENRE</span>';
+                echo '</div>';
+                echo '</div>';
+              }
+              $conn_->close();       
+            ?>
+          
                 </section>
               </div>
               <!-- trending end -->
@@ -174,6 +172,7 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
+        </div>
         </div>
 
 
@@ -221,7 +220,7 @@
                 $x = 0;
                 while($row = $result->fetch_assoc()) {
                   $x = $x + 1;
-                  // if ($x > 6) break;
+                  if ($x > 5) break;
 
                   echo '<div class="card" >';
                   echo '<img src="./POSTER/'.$row["Picture"].'" class="card-img-top" alt="...">';
@@ -229,13 +228,13 @@
                   echo '<section class="d-flex justify-content-between">';
                   echo '<div>';
                   echo '<a class="bi bi-play-circle-fill card-icon" href="./sinopsis_new.php?id='.$row["id"].'" target="_self"></a>';
-                  echo '</div>';
-                  echo '<div>';
+                  echo '<p class="ngihaflix-card-text text-white">'.$row["Title"].'</p>';
                   echo '</div>';
                   echo '</section>';
                   echo '<section class="d-flex align-items-center justify-content-between" >';
-                  echo '<p class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);">'.$row["Rating"].'</p>';
-                  echo '<span class="m-2 ngihaflix-card-text text-white">'.$row["Title"].'</span> <span class="border ngihaflix-card-text p-1 text-white">'.$row["Quality"].'</span>';
+                  echo '<p class="ngihaflix-card-text m-0 text-white">Rating: </p>';
+                  echo '<span class="ngihaflix-card-text m-0" style="color: rgb(0, 186, 0);">'.$row["Rating"].'</span>';
+                  echo '<span class="border ngihaflix-card-text p-1 text-white">'.$row["Quality"].'</span>';
                   echo '</section>';
                   echo '<span class="ngihaflix-card-text text-white">'.$row["Genre"].'</span>';
                   echo '</div>';

@@ -396,7 +396,7 @@ form textarea {
       display: inline-block;
       margin-left: 10px;
       margin-right: 10px;
-      background: url(images/arrow-gray.png) no-repeat; }
+      background: url(arrow-gray.png) no-repeat; }
     .breadcrumbs a:hover {
       color: #ffaa3c; }
   .breadcrumbs span {
@@ -1526,7 +1526,7 @@ ul.arrow {
         color: #ffaa3c; }
 
 .main-content .container {
-  background: white;
+  background: #252525b9;
   border-radius: 5px;
   padding: 30px; }
 

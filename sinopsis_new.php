@@ -11,7 +11,7 @@
 	if ($conn1->connect_error) {
 		die("Connection failed: " . $connGenre->connect_error);
 	}
-	$sql = "SELECT id, Picture, Title, Genre, Rating, Quality, Sinopsis FROM ngihamovie Where id = ".$_id;
+	$sql = "SELECT id, Picture, Title, Genre, Rating, Quality, Artist, Sinopsis FROM ngihamovie Where id = ".$_id;
 	$ResultMovie = $conn1->query($sql);
 	if ($ResultMovie->num_rows > 0) {
 		// output data of each row
@@ -19,6 +19,9 @@
 			$_movTitle = $Mov["Title"];
 			$_movPic = $Mov["Picture"];
 			$_movSinop = $Mov["Sinopsis"];
+			$_movRating = $Mov["Rating"];
+			$_movGenre = $Mov["Genre"];
+			$_movArtist = $Mov ["Artist"];
 		}
 	}
 
@@ -68,7 +71,6 @@
 					<div class="page">
 						<div class="breadcrumbs">
 							<a href="landing.php">Home</a>
-							<a>|</a>
 							<!-- <a href="review.html">Movie Review</a> -->
 							<?php
 									echo '<span>'.$_movTitle.'</span>';
@@ -86,26 +88,29 @@
 									<?php
 									echo '<h2 class="movie-title">'.$_movTitle.'</h2>'
 									?>
+									<!-- 
 									<div class="movie-summary">
 										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-
 										<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit sed.</p>
 									</div>
-									<ul class="movie-meta">
-										<li><strong>Rating:</strong> 
-											<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
-										</li>
-										<li><strong>Length:</strong> 98 min</li>
-										<li><strong>Premiere:</strong> 22 March 2013 (USA)</li>
-										<li><strong>Category:</strong> Animation/Adventure/Comedy</li>
-									</ul>
+									 -->
+									 <?php
+										echo '<ul class="movie-meta">';
+										echo '<li><strong>Rating:</strong>'; 
+										echo '<div class="star-rating" title="Rated '.$_movRating.' out of 10"><span style="width:80%"><strong class="rating"> '.$_movRating.'</strong> out of 10</span></div>';
+										echo '</li>';
+										// echo '<li><strong>Length:</strong> 98 min</li>';
+										// echo '<li><strong>Premiere:</strong> 22 March 2013 (USA)</li>';
+										echo '<li><strong>Category:</strong> '.$_movGenre.' </li>';
+										echo '</ul>';
 
-									<ul class="starring">
-										<li><strong>Directors:</strong> Kirk de Mico (as Kirk DeMico). Chris Sanders</li>
-										<li><strong>Writers:</strong> Chris Sanders (screenplay), Kirk De Micco (screenplay)</li>
-										<li><strong>Stars:</strong> Nicolas Cage, Ryan Reynolds, Emma Stone</li>
-									</ul>
-								</div>
+										echo '<ul class="starring">';
+										// echo '<li><strong>Directors:</strong> Kirk de Mico (as Kirk DeMico). Chris Sanders</li>';
+										// echo '<li><strong>Writers:</strong> Chris Sanders (screenplay), Kirk De Micco (screenplay)</li>';
+										echo '<li><strong>Stars:</strong> '.$_movArtist.'</li>';
+										echo '</ul>';
+									?>
+									</div>
 							</div> <!-- .row -->
 							<div class="entry-content">
 								<?php
@@ -122,17 +127,15 @@
 						<div class="col-md-2">
 							<div class="widget">
 								<h3 class="widget-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate</p>
+								<p>We love ICT</p>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="widget">
 								<h3 class="widget-title">Recent Review</h3>
 								<ul class="no-bullet">
-									<li>Lorem ipsum dolor</li>
-									<li>Sit amet consecture</li>
-									<li>Dolorem respequem</li>
-									<li>Invenore veritae</li>
+									<li>My Stupid Boss</li>
+									<li>A Man Called Otto</li>
 								</ul>
 							</div>
 						</div>
@@ -140,10 +143,11 @@
 							<div class="widget">
 								<h3 class="widget-title">Help Center</h3>
 								<ul class="no-bullet">
-									<li>Lorem ipsum dolor</li>
-									<li>Sit amet consecture</li>
-									<li>Dolorem respequem</li>
-									<li>Invenore veritae</li>
+									<li>Azka Nayla Maymona</li>
+									<li>Lutfiya Ghina Maharani</li>
+									<li>Naomi Adya Azzahra</li>
+									<li>Inez Fiqrotul Amna Sukadi</li>
+									<li>Himmah Aidhatul Muntazha</li>
 								</ul>
 							</div>
 						</div>
@@ -151,21 +155,14 @@
 							<div class="widget">
 								<h3 class="widget-title">Join Us</h3>
 								<ul class="no-bullet">
-									<li>Lorem ipsum dolor</li>
-									<li>Sit amet consecture</li>
-									<li>Dolorem respequem</li>
-									<li>Invenore veritae</li>
-								</ul>
+									<li>X-12 NGIHAFLIX Team</li>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="widget">
 								<h3 class="widget-title">Social Media</h3>
 								<ul class="no-bullet">
-									<li>Facebook</li>
-									<li>Twitter</li>
-									<li>Google+</li>
-									<li>Pinterest</li>
+									<li>Instagram</li>
 								</ul>
 							</div>
 						</div>
@@ -179,14 +176,12 @@
 						</div>
 					</div> <!-- .row -->
 
-					<div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+					<div class="colophon">Copyright 2014 Ngihaflix.</div>
 				</div> <!-- .container -->
 
 			</footer>
 		</div>
 		<!-- Default snippet for navigation -->
-		
-
 
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
